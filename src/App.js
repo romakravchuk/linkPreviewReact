@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { client } from './api/apiClient';
+import TextBox from './components/text-box';
+import PreviewLink from './components/preview-link';
+import {
+    lambdaUrl,
+    setUpdLinks,
+    handleTextareaValue,
+} from './components/helpers';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [links, setLinks] = useState([]);
+    const [error, setError] = useState('');
+
+    const fetchLinks = (value) => {
+        const linksArr = handleTextareaValue(value);
+
+        if (linksArr.length) {
+            const updLinks = linksArr.map(setUpdLinks);
+
+            client.get(`${lambdaUrl}?links=${updLinks}`).then((resp) => {
+                if (resp.error) return setError(resp.error);
+                setLinks(resp);
+                setError('');
+            });
+        }
+    };
+
+    return (
+        <div className="App">
+            <TextBox fetchLinks={fetchLinks} />
+            <PreviewLink error={error} links={links} />
+        </div>
+    );
 }
 
 export default App;

@@ -1,0 +1,64 @@
+{
+    "extends": [
+        "airbnb",
+        "airbnb/hooks",
+        "plugin:react/recommended",
+        "prettier",
+        "prettier/react"
+    ],
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "settings": {
+        "react": {
+            "pragma": "React",
+            "version": "detect"
+        }
+    },
+    "plugins": ["react"],
+    "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+        "react/destructuring-assignment": "off",
+        "react/jsx-indent": [2, 4],
+        "react/jsx-indent-props": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/jsx-curly-newline": "off",
+        "react/forbid-prop-types": "off",
+        "react/no-access-state-in-setstate": "off",
+        "react/no-array-index-key": "off",
+        "react/jsx-fragments": "error",
+        "react/jsx-props-no-spreading": "off",
+        "react/jsx-wrap-multilines": "off",
+        "react/state-in-constructor": "off",
+        "react/static-property-placement": [0],
+        "object-curly-newline": [0, { "ImportDeclaration": "never" }],
+        "import/prefer-default-export": "off",
+        "import/no-named-as-default": "off",
+        "import/no-named-as-default-member": "off",
+        "no-prototype-builtins": "off",
+        "max-len": "off",
+        "no-return-assign": "off",
+        "consistent-return": "off",
+        "indent": "off",
+        "linebreak-style": "off",
+        "arrow-parens": "off",
+        "no-confusing-arrow": "off",
+        "comma-dangle": "off",
+        "operator-linebreak": "off",
+        "implicit-arrow-linebreak": "off",
+        "no-console": "error",
+        "function-paren-newline": "off",
+        "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+        "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
+        "camelcase": "off",
+        "no-param-reassign": ["error", { "props": false }],
+        "jsx-a11y/label-has-associated-control": [
+            "warn",
+            {
+                "assert": "htmlFor"
+            }
+        ]
+    }
+}
