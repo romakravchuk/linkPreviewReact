@@ -19,7 +19,8 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "lint": "eslint --ext .js src/",
-        "lint:quiet": "eslint --ext .js --quiet src/"
+        "lint:quiet": "eslint --ext .js --quiet src/",
+        "sls_client_deploy": "sls client deploy --aws-profile roman4ik"
     },
     "eslintConfig": {
         "extends": [
@@ -47,6 +48,7 @@
         "eslint-plugin-jsx-a11y": "^6.4.1",
         "eslint-plugin-react": "^7.21.5",
         "eslint-plugin-react-hooks": "4.0.0",
-        "prettier": "^2.2.0"
+        "prettier": "^2.2.0",
+        "serverless-finch": "^2.6.0"
     }
 }
